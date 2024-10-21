@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body class="bg-gray-900 text-white">
+    <button id="logOut" class="p-3 bg-blue-500 rounded-lg text-white">Logout</button>
     <div class="w-full py-10 px-12 flex justify-center flex-col gap-20">
         <h1 class="text-center text-4xl font-semibold">Dashboard</h1>
         <div class="flex justify-around">
@@ -14,5 +15,14 @@
             <button class="p-3 bg-blue-500 rounded-lg text-white"><a href="./dashboard-2.html">Accept hand signature requests</a></button>
         </div>
     </div>
+    <script>
+        if (localStorage.getItem("logStatus") !== "true") {
+            window.location.href = "./login.html";
+        }
+        document.getElementById("logOut").addEventListener("click", (e)=>{
+            localStorage.setItem("logStatus", "false");
+            window.location.href = "./login.html";
+        });
+    </script>
 </body>
 </html>
